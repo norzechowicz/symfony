@@ -368,12 +368,7 @@ abstract class Kernel implements KernelInterface, TerminableInterface
      */
     public function getRootDir()
     {
-        if (null === $this->rootDir) {
-            $r = new \ReflectionObject($this);
-            $this->rootDir = str_replace('\\', '/', dirname($r->getFileName()));
-        }
-
-        return $this->rootDir;
+        return dirname(dirname(dirname(dirname('README.md')))); // dirname FTW! 
     }
 
     /**
